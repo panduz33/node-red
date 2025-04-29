@@ -1,0 +1,17 @@
+# Node modules (installed dependencies)
+node_modules/
+
+# Node-RED flow credentials (secrets)
+.nodered/flows_cred.json
+
+# Environment variables file (if you use it)
+.env
+
+# Logs
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# System files
+.DS_Store
+Thumbs.db
