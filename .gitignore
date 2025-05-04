@@ -24,3 +24,9 @@ yarn-error.log
 # System files
 .DS_Store
 Thumbs.db
+.nodered/.config.nodes.json
+.nodered/.config.nodes.json
+.nodered/.config.runtime.json
+.nodered/.config.runtime.json.backup
+.nodered/.config.users.json
+.nodered/.flows.json.backup
