@@ -1,0 +1,32 @@
+testCaseNumber,title,description,priority,steps,expectedResult
+TC001,Verify Response Structure for Available Pet,Validate that the response returns a properly structured pet object with all required fields when the pet is available.,P0 - Critical,"1. Send a request to retrieve pet details
+2. Verify the response format is JSON
+3. Validate response status code","1. Response should contain valid pet object
+2. Response should include id field with value 1
+3. Response should include category object with id 1 and name 'string'
+4. Response should include name field with value 'doggie'
+5. Response should include photoUrls array containing 'string'
+6. Response should include tags array with object containing id 1 and name 'string'
+7. Response should include status field with value 'available'"
+TC002,Verify Pet Object Type Validation,Validate that each field in the pet object has the correct data type according to the API specification.,P0 - Critical,"1. Send a request to retrieve pet details
+2. Analyze the data types of each field in the response","1. 'id' should be a number
+2. 'category' should be an object
+3. 'category.id' should be a number
+4. 'category.name' should be a string
+5. 'name' should be a string
+6. 'photoUrls' should be an array of strings
+7. 'tags' should be an array of objects
+8. 'tags[0].id' should be a number
+9. 'tags[0].name' should be a string
+10. 'status' should be a string"
+TC003,Verify Required Fields in Pet Response,Validate that all required fields are present in the pet response object.,P0 - Critical,"1. Send a request to retrieve pet details
+2. Check for presence of all required fields in the response","1. Response should contain 'id' field
+2. Response should contain 'category' field
+3. Response should contain 'name' field
+4. Response should contain 'photoUrls' field
+5. Response should contain 'tags' field
+6. Response should contain 'status' field"
+TC004,Verify Pet Status Value,Validate that the pet status field contains a valid value (available) as per the API specification.,P0 - Critical,"1. Send a request to retrieve pet details
+2. Extract and verify the 'status' field value","1. The 'status' field should have value 'available'
+2. The value should be a valid status as per API specification (available, pending, or sold)"
+

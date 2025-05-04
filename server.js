@@ -6,10 +6,18 @@ const app = express();
 const server = http.createServer(app);
 
 const settings = {
-    httpAdminRoot: "/red",
-    httpNodeRoot: "/api",
+    httpAdminRoot: "/admin",
+    httpNodeRoot: "/ui",
     userDir: "./.nodered/",
-    functionGlobalContext: {} // This makes function nodes work
+    flowFile: "./.nodered/flows.json",
+    editorTheme: {
+        projects: {
+            enabled: false
+        }
+    },
+    functionGlobalContext: {
+        CLAUDE_KEY : process.env.CLAUDE_KEY,
+    } // This makes function nodes work
 };
 
 RED.init(server, settings);

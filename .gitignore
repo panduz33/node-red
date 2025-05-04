@@ -1,8 +1,17 @@
 # Node modules (installed dependencies)
 node_modules/
+.nodered/node_modules/
 
 # Node-RED flow credentials (secrets)
 .nodered/flows_cred.json
+
+# Node-RED flow configuration
+.nodered/.config.nodes.json
+.nodered/.config.nodes.json.backup
+.nodered/.config.runtime.json
+.nodered/.config.runtime.json.backup
+.nodered/.config.user.json
+.nodered/.config.user.json.backup
 
 # Environment variables file (if you use it)
 .env

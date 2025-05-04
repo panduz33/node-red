@@ -1,0 +1,32 @@
+test_case_number,title,description,priority,steps,expected_result
+TC001,Verify status 200 for valid booking ID,Ensure valid GET request returns status 200.,P0 - Critical,1. Send GET request to /booking/672,1. Response code is 200
+TC002,Verify response contains correct firstname,Check if firstname returned is Josh.,P0 - Critical,1. GET /booking/672,1. Response.firstname == 'Josh'
+TC003,Verify response contains correct lastname,Check if lastname is Allen.,P0 - Critical,1. GET /booking/672,1. Response.lastname == 'Allen'
+TC004,Verify totalprice is correct,Ensure the totalprice returned is 111.,P0 - Critical,1. GET /booking/672,1. Response.totalprice == 111
+TC005,Verify depositpaid is true,Check boolean value of depositpaid.,P0 - Critical,1. GET /booking/672,1. Response.depositpaid == true
+TC006,Verify bookingdates is an object,Ensure bookingdates is structured as an object.,P1 - High,1. GET /booking/672,1. typeof Response.bookingdates == object
+TC007,Verify checkin date is correct,Check if checkin date is 2018-01-01.,P1 - High,1. GET /booking/672,1. Response.bookingdates.checkin == '2018-01-01'
+TC008,Verify checkout date is correct,Check if checkout date is 2019-01-01.,P1 - High,1. GET /booking/672,1. Response.bookingdates.checkout == '2019-01-01'
+TC009,Verify additionalneeds is returned,Ensure additionalneeds is present and equals 'super bowls'.,P2 - Modereate,1. GET /booking/672,1. Response.additionalneeds == 'super bowls'
+TC010,Verify response JSON format,Ensure the response is valid JSON.,P2 - Modereate,1. GET /booking/672,1. Response is valid JSON
+TC011,Verify response time under 2s,Ensure the API responds quickly.,P2 - Modereate,1. GET /booking/672,1. Response time < 2000ms
+TC012,Verify firstname is string,Check data type of firstname.,P3 - Low,1. GET /booking/672,1. typeof firstname == string
+TC013,Verify totalprice is number,Ensure totalprice is numeric.,P3 - Low,1. GET /booking/672,1. typeof totalprice == number
+TC014,Verify depositpaid is boolean,Check if depositpaid is boolean.,P3 - Low,1. GET /booking/672,1. typeof depositpaid == boolean
+TC015,Verify checkin date format,Check format is YYYY-MM-DD.,P3 - Low,1. GET /booking/672,1. checkin matches \d{4}-\d{2}-\d{2}
+TC016,Verify checkout date format,Check format is YYYY-MM-DD.,P3 - Low,1. GET /booking/672,1. checkout matches \d{4}-\d{2}-\d{2}
+TC017,Verify non-existing booking ID returns 404,Ensure invalid ID returns error.,P1 - High,1. GET /booking/999999,1. Status code is 404
+TC018,Verify unauthorized access returns 403,Check response for unauthorized user.,P1 - High,1. GET /booking/672 without auth,1. Status code is 403 or 401
+TC019,Verify extra fields not returned,Ensure no unexpected fields in response.,P2 - Modereate,1. GET /booking/672,1. Response contains only expected fields
+TC020,Verify GET method only allowed,POST should not be allowed on this endpoint.,P1 - High,1. Send POST to /booking/672,1. Status code is 405
+TC021,Verify CORS headers present,Ensure CORS headers allow frontend access.,P2 - Modereate,1. GET /booking/672,1. Access-Control-Allow-Origin header present
+TC022,Verify firstname case sensitivity,Ensure 'josh' != 'Josh'.,P3 - Low,1. GET /booking/672,1. firstname is case-sensitive
+TC023,Verify additionalneeds is string,Check data type of additionalneeds.,P3 - Low,1. GET /booking/672,1. typeof additionalneeds == string
+TC024,Verify response doesn't include password,Ensure no sensitive data is leaked.,P0 - Critical,1. GET /booking/672,1. No sensitive info in response
+TC025,Verify URL encoding handled,Ensure encoded characters in URL don't break.,P3 - Low,1. GET /booking%2F672,1. Status code is 200 or valid error
+TC026,Verify no content-type mismatch,Content-Type header should be application/json.,P2 - Modereate,1. GET /booking/672,1. Header Content-Type is application/json
+TC027,Verify null fields are absent,No field should return null.,P2 - Modereate,1. GET /booking/672,1. No null values in response
+TC028,Verify field order is not required,Field order in JSON should not matter.,P3 - Low,1. GET /booking/672,1. Fields may appear in any order
+TC029,Verify multiple concurrent requests,Handle high load of parallel requests.,P2 - Modereate,1. Send 100 GET requests to /booking/672,1. All return 200 OK
+TC030,Verify negative booking ID,Negative ID should return error.,P1 - High,1. GET /booking/-1,1. Status code is 400 or 404
+
